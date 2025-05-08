@@ -13,7 +13,7 @@
   };
 
   outputs = {
-    self,
+    # self,
     nixpkgs,
     flake-utils,
     ...
@@ -30,7 +30,7 @@
         devShells.default = import ./shell.nix {inherit pkgs;};
 
         # Output package
-        # packages.default = pkgs.callPackage ./. {};
+        packages.default = pkgs.callPackage ./. {};
       }
     )
     // {

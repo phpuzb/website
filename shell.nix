@@ -1,5 +1,5 @@
 {pkgs ? import <nixpkgs> {}}: let
-  phpEnv = pkgs.php.buildEnv {
+  php-env = pkgs.php.buildEnv {
     extensions = {
       enabled,
       all,
@@ -10,8 +10,15 @@
 in
   pkgs.mkShell {
     buildInputs = with pkgs; [
-      phpEnv
-      phpEnv.packages.composer
+      # Nix
+      nixd
+      alejandra
+      statix
+      deadnix
+
+      # PHP
+      php-env
+      php-env.packages.composer
       symfony-cli
     ];
   }
