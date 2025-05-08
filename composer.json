@@ -1,0 +1,58 @@
+{
+  "name": "phpuzb/website",
+  "description": "Official website of PHP Uzbekistan.",
+  "keywords": [
+    "php",
+    "uzbekistan"
+  ],
+  "homepage": "https://php.org.uz",
+  "type": "project",
+  "license": "MIT",
+  "support": {
+    "issues": "https://github.com/phpuzb/website/issues",
+    "source": "https://github.com/phpuzb/website"
+  },
+  "authors": [
+    {
+      "name": "Orzklv",
+      "email": "sakhib@orzklv.uz"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "hyde/framework": "^1.7",
+    "laravel-zero/framework": "^10.0"
+  },
+  "require-dev": {
+    "hyde/realtime-compiler": "^3.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Hyde\\Testing\\": "tests/"
+    }
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "@php -r \"@unlink('./app/storage/framework/cache/packages.php');\"",
+      "@php hyde package:discover --ansi"
+    ]
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "bin": [
+    "hyde"
+  ]
+}
